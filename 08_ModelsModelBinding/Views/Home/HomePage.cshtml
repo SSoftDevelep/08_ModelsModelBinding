@@ -1,0 +1,46 @@
+﻿@using _08_ModelsModelBinding.ViewModels
+
+@model HomePageViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HomePage</title>
+</head>
+<body>
+    <div>
+        <h2> Home Page</h2>
+        <b> Ad: </b> @Model.KisiNesnesi.Ad <br />
+        <b> Soyad :</b> @Model.KisiNesnesi.Soyad <br />
+        <b> Yas :</b> @Model.KisiNesnesi.Yas
+        <hr />
+
+        <b> Ad-Soyad :</b> @(Model.KisiNesnesi.Ad + " " + Model.KisiNesnesi.Soyad + ":" + Model.KisiNesnesi.Yas) <br />
+
+        <b> Adres :</b> @(Model.AdresNesnesi.AdresTanim + "," +Model.AdresNesnesi.Sehir)
+        <hr />
+
+        <div>
+
+            @using (Html.BeginForm())
+            {
+                <b> Ad :</b> @Html.TextBoxFor(x=> x.KisiNesnesi.Ad) <br />
+                <b> Soyad :</b> @Html.TextBoxFor(x=>x.KisiNesnesi.Soyad)<br />
+                <b> Yas :</b> @Html.TextBoxFor(x=>x.KisiNesnesi.Yas) <br />
+                <b> Adres :</b> @Html.TextBoxFor(x=> x.AdresNesnesi.AdresTanim) <br />
+                <b> Sehir : </b> @Html.TextBoxFor(x=> x.AdresNesnesi.Sehir)
+
+                <input type="submit" value="Gonder"/>
+            }
+
+        </div>
+
+    </div>
+</body>
+</html>
